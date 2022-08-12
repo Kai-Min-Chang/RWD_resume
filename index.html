@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>張凱閔的履歷</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" referrerpolicy="no-referrer"></script> <!--JQuery-->
+    <script src="https://unpkg.com/vue@3"></script><!--Vue-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script><!--Bootstrap-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.compat.min.css" integrity="sha512-b42SanD3pNHoihKwgABd18JUZ2g9j423/frxIP5/gtYgfBz/0nDHGdY/3hi+3JwhSckM3JLklQ/T6tJmV7mZEw==" crossorigin="anonymous" referrerpolicy="no-referrer" /><!--animateCSS-->   
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js" integrity="sha512-Eak/29OTpb36LLo2r47IpVzPBLXnAMPAVypbSZiZ4Qkf8p/7S/XRG5xp7OKWPPYfJT6metI+IORkR5G8F900+g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><!--WOW-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" /><!--font awesome-->
+    <link rel="stylesheet" href="./css/style.css"><!--CSS-->
+</head>
+
+<body>
+    <div id="app">
+        <nav class="navbar navbar-expand-lg bg-dark navbar-dark">  <!-- 頂部菜單列 -->
+            <div class="container-fluid">
+            <a class="navbar-brand" href="#">RWD履歷</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                <li class="nav-item">
+                    <button class="nav-link" @click="flag=1">簡介</button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link" @click="flag=2">自我介紹</button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link" @click="flag=3">經歷</button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link" @click="flag=4">技能</button>
+                </li>
+                </ul>
+            </div>
+            </div>
+        </nav>
+        <div v-if="flag===0" id="start" class="position-relative"> <!-- 初始提示文字 -->
+            <p id="info">{{message}}</p>
+        </div>
+        <div v-if="flag===1" class="container mt-5">  <!-- 簡介 -->
+            <div class="row justify-content-center align-items-center">
+                <div class="col-lg-4 offset-lg-2">
+                    <p class="fs-3">姓名：張凱閔</p>
+                    <p>生日：1996/12/15</p>
+                    <p>性別：男</p>
+                    <p>學位：逢甲大學 資訊工程系學士畢業</p>
+                    <p>技能：HTML、CSS、JavaScript、JQuery、Bootstrap、VueJS、Adobe XD</p>
+                    <p>證照：Adobe PhotoShop</p>
+                    <p>　　　Adobe Illustrator</p>
+                </div>
+                <div class="col-lg-6 d-flex justify-content-center">
+                    <img src="/image/個人照2.jpg" id="singlePic" class="rounded-5 shadow wow fadeIn" data-wow-duration="1.2s" alt="">
+                </div>
+            </div>
+        </div>
+        <div v-if="flag===2" class="container mt-5">  <!-- 自我介紹 -->
+            <div class="row text-center">
+                <p class="display-4 fw-bold">自我介紹</p>
+            </div>
+            <div class="row justify-content-center align-items-center">
+                <div class="col-lg-5">
+                    <p class="fs-3">姓名：張凱閔</p>
+                    <p>
+                        {{intro[0]}}
+                    </p>
+                </div>
+                <div class="col-lg-5">
+                    <img src="/image/家庭照1.jpg" id="img-1" class="none wow w-100 rounded-3 shadow fadeIn" data-wow-duration="1.5s" alt="">
+                </div>
+            </div>
+            <div class="row justify-content-center align-items-center mt-3">
+                <div class="col-lg-5 order-lg-2">
+                    <p>
+                        {{intro[1]}}
+                    </p>
+                </div>
+                <div class="col-lg-5">
+                    <img src="/image/家庭照7.jpg" class="none wow w-100 rounded-3 order-lg-1 shadow fadeIn" data-wow-duration="1.5s" alt="">
+                </div>
+            </div>
+            <div class="row justify-content-center align-items-center mt-3">
+                <div class="col-lg-5">
+                    <p>
+                        {{intro[2]}}
+                    </p>
+                </div>
+                <div class="col-lg-5">
+                    <img src="/image/家庭照8.jpg" class="none wow w-100 rounded-3 shadow fadeIn" data-wow-duration="1.5s" alt="">
+                </div>
+            </div>
+            <div class="row justify-content-center align-items-center mt-3">
+                <div class="col-lg-5 order-lg-2">
+                    <p>
+                        {{intro[3]}}
+                    </p>
+                </div>
+                <div class="col-lg-5">
+                    <img src="/image/入伍照1.jpg" class="none wow w-100 rounded-3 order-lg-1 shadow fadeIn" data-wow-duration="1.5s" alt="">
+                </div>
+            </div>
+        </div>
+        <div v-if="flag===3" class="container mt-5">  <!-- 經歷 -->
+            <div class="row mt-4">
+                <div class="col-12 text-center">
+                    <p class="display-5 fw-bold">學歷</p>
+                </div>
+            </div>
+            <div class="row justify-content-center align-items-center mt-3">
+                <div class="col-6 col-lg-5 text-center">
+                    <p class="fs-3 fw-bold">{{school[0].name}}</p>
+                    <p class="fs-4">{{school[0].major}}</p>
+                </div>
+                <div class="col-lg-5 d-lg-block">
+                    <img src="/image/逢甲大學.jpg" class="wow w-100 rounded-3 shadow slideInRight" data-wow-duration="0.8s" alt="">
+                </div>
+            </div>
+            <div class="row justify-content-center align-items-center mt-4 mt-lg-3">
+                <div class="col-5 text-center order-lg-2">
+                    <p class="fs-3 fw-bold">{{school[1].name}}</p>
+                    <p class="fs-4">{{school[1].major}}</p>
+                </div>
+                <div class="col-lg-5 d-lg-block order-lg-1">
+                    <img src="/image/豐原高中.jpg" class="wow w-100 rounded-3 shadow slideInLeft" data-wow-duration="0.8s" alt="">
+                </div>   
+            </div>
+            <div class="row mt-5">
+                <div class="col-12 text-center">
+                    <p class="display-5 fw-bold">工作經歷</p>
+                </div>
+            </div>
+            <div class="row row-cols-1 justify-content-center align-items-center mt-4 mt-lg-3 work">
+                <div class="col-11 col-lg-7 mt-3">
+                    <p class="fs-3 fw-bold">{{works[0].name}}</p>
+                    <p>{{works[0].time}}</p>
+                    <p>{{works[0].position}}</p>
+                    <p>{{works[0].content}}</p>
+                </div>
+                <div class="col-11 col-lg-7 mt-3">
+                    <p class="fs-3 fw-bold">{{works[1].name}}</p>
+                    <p>{{works[1].time}}</p>
+                    <p>{{works[1].position}}</p>
+                    <p>{{works[1].content}}</p>
+                </div>
+                <div class="col-11 col-lg-7 mt-3">
+                    <p class="fs-3 fw-bold">{{works[2].name}}</p>
+                    <p>{{works[2].time}}</p>
+                    <p>{{works[2].position}}</p>
+                    <p>{{works[2].content}}</p>
+                </div>
+            </div>
+        </div>
+        <div v-if="flag===4" class="container text-center">  <!-- 專長、技能 -->
+            <div class="row text-center mt-5">
+                <div class="col-12">
+                    <h1 class="fw-bold">專長、技能</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="wow fadeIn col-lg-6 bg-success rounded mt-3 mt-lg-2 shadow" data-wow-duration="0.8s" data-wow-delay="0s">
+                    <p class="fs-2 fw-bold">{{tech[0].category}}</p>
+                    <p class="fs-3">{{tech[0].content}}</p>
+                </div>
+            </div>
+            <div class="row justify-content-end">
+                <div class="wow fadeIn col-lg-6 bg-warning rounded mt-3 mt-lg-2 shadow" data-wow-duration="0.8s" data-wow-delay="0.5s">
+                    <p class="fs-2 fw-bold">{{tech[1].category}}</p>
+                    <p class="fs-3">{{tech[1].content}}</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="wow fadeIn col-lg-6 bg-info rounded mt-3 mt-lg-2 shadow" data-wow-duration="0.8s" data-wow-delay="1s">
+                    <p class="fs-2 fw-bold">{{tech[2].category}}</p>
+                    <p class="fs-3">{{tech[2].content[0]}}</p>
+                    <p class="fs-3">{{tech[2].content[1]}}</p>
+                </div>
+            </div>
+            <div class="row justify-content-end">
+                <div class="wow fadeIn col-lg-6 bg-danger rounded mt-3 mt-lg-2 shadow" data-wow-duration="0.8s" data-wow-delay="1.5s">
+                    <p class="fs-2 fw-bold">{{tech[3].category}}</p>
+                    <p class="fs-3">{{tech[3].content[0]}}</p>
+                    <p class="fs-3">{{tech[3].content[1]}}</p>
+                    <p class="fs-3">{{tech[3].content[2]}}</p>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-12 text-center">
+                    <p class="fs-1 fw-bold">證照</p>
+                </div>
+            </div>
+            <div class="row">
+                <p class="fs-3">Adobe PhotoShop</p>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <img src="/image/ps.jpg" class="w-100 rounded-3 border" alt="">
+                </div>
+            </div>
+            <div class="row mt-3">
+                <p class="fs-3">Adobe Illustrator</p>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <img src="/image/ai.jpg" class="w-100 rounded-3 border" alt="">
+                </div>
+            </div>
+            <div class="row mt-3">
+                <p class="fs-3">Adobe Design</p>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <img src="/image/design.jpg" class="w-100 rounded-3 border" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <a href="#" class="goTop animated">
+        <i class="fa-solid fa-circle-arrow-up fa-3x"></i>
+    </a>
+    <footer></footer>
+
+    <script>
+        new WOW().init()
+        const {createApp,ref } = Vue
+        $(function(){
+            $(window).scroll(function(){
+                let h = $(window).scrollTop();
+                let animateIn = 'fadeInLeft';
+                let animateOut = 'rollOut';
+                if(h>600){
+                    $('.goTop').show().removeClass(animateOut).addClass(animateIn);
+                }else{
+                    $('.goTop').removeClass(animateIn).addClass(animateOut);
+                }
+            })
+        })
+        
+        const app = createApp({
+            data(){
+                return {
+                    flag:ref(0),
+                    message:"請點選上列菜單選項",
+                    data:null,
+                    school:null,
+                    works:null,
+                    intro:null,
+                    tech:null
+                }
+            },
+            created(){
+                this.fetchData()
+            },
+            methods:{
+                async fetchData(){
+                    const url = "./data.json"
+                    this.data = await(await fetch(url)).json()
+                    this.school = this.data.school
+                    this.works = this.data.work
+                    this.intro = this.data.intro
+                    this.tech = this.data.tech
+                }
+            }
+        })
+        
+        app.mount('#app')
+        
+
+        
+    </script>
+</body>
+</html>
